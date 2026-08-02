@@ -44,7 +44,7 @@ class _TranslationPanelState extends ConsumerState<TranslationPanel> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Row(
-            mainAxisAlignment: MainState.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 _isEnToSi ? 'English ➔ Sinhala' : 'Sinhala ➔ English',

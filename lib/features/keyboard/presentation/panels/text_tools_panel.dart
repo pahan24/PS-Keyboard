@@ -62,7 +62,7 @@ class _TextToolsPanelState extends ConsumerState<TextToolsPanel> {
                       border: Border.all(color: theme.borderColor),
                     ),
                     child: Row(
-                      mainAxisAlignment: MainState.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           entry.key,

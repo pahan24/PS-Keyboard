@@ -153,7 +153,7 @@ class HomeSettingsScreen extends ConsumerWidget {
 
             // Theme Gallery Presets
             Row(
-              mainAxisAlignment: MainState.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
                   'Theme Gallery',
@@ -206,7 +206,7 @@ class HomeSettingsScreen extends ConsumerWidget {
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainState.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             theme.name,

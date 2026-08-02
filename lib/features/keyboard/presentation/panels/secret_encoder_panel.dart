@@ -27,7 +27,7 @@ class SecretEncoderPanel extends ConsumerWidget {
         children: [
           // Top Header & Mode Toggle
           Row(
-            mainAxisAlignment: MainState.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
@@ -50,7 +50,7 @@ class SecretEncoderPanel extends ConsumerWidget {
                 ],
                 selected: {state.isDecodeMode},
                 onSelectionChanged: (set) => notifier.toggleMode(set.first),
-                style: ButtonStyle(
+                style: const ButtonStyle(
                   visualDensity: VisualDensity.compact,
                 ),
               ),

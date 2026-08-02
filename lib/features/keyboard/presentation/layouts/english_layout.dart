@@ -10,13 +10,13 @@ class EnglishLayout extends ConsumerWidget {
   static const List<String> row2 = ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'];
   static const List<String> row3 = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
 
-  static const Map<String, List<String>> popupMap = {
+  static final Map<String, List<String>> popupMap = {
     'a': ['á', 'à', 'â', 'ä', 'å', 'æ', '@'],
     'e': ['é', 'è', 'ê', 'ë', '3'],
     'i': ['í', 'ì', 'î', 'ï', '1'],
     'o': ['ó', 'ò', 'ô', 'ö', '0'],
     'u': ['ú', 'ù', 'û', 'ü'],
-    's': ['ß', '$'],
+    's': ['ß', '\$'],
     'c': ['ç'],
     'n': ['ñ'],
   };

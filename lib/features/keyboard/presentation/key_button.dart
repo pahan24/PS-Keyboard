@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/theme/keyboard_theme.dart';
 import '../../../core/services/native_input_service.dart';
 import '../../../providers/theme_provider.dart';
 import '../../../providers/settings_provider.dart';
