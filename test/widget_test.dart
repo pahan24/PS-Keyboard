@@ -10,7 +10,7 @@ void main() {
   setUpAll(() async {
     TestWidgetsFlutterBinding.ensureInitialized();
     SharedPreferences.setMockInitialValues({});
-    await StorageService.init();
+    await StorageService.init(isTest: true);
   });
 
   testWidgets('KeyButton renders label and triggers tap callback', (WidgetTester tester) async {
