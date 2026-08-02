@@ -6,7 +6,11 @@ pluginManagement {
             localPropertiesFile.withReader("UTF-8") { reader -> properties.load(reader) }
         }
         def flutterSdkPath = properties.getProperty("flutter.sdk")
-        assert flutterSdkPath != null : "flutter.sdk not set in local.properties"
+        if (flutterSdkPath == null) {
+            // Fallback to environment variable (set by Codemagic)
+            flutterSdkPath = System.getenv("FLUTTER_ROOT")
+        }
+        assert flutterSdkPath != null : "flutter.sdk not set in local.properties and FLUTTER_ROOT env var is not set."
         return flutterSdkPath
     }()
 
