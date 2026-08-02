@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ps_keyboard/core/services/storage_service.dart';
 import 'package:ps_keyboard/features/keyboard/presentation/key_button.dart';
 import 'package:ps_keyboard/features/keyboard/presentation/panels/secret_encoder_panel.dart';
 
 void main() {
+  setUpAll(() async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    SharedPreferences.setMockInitialValues({});
+    await StorageService.init();
+  });
+
   testWidgets('KeyButton renders label and triggers tap callback', (WidgetTester tester) async {
     bool tapped = false;
 
@@ -37,7 +45,9 @@ void main() {
       const ProviderScope(
         child: MaterialApp(
           home: Scaffold(
-            body: SecretEncoderPanel(),
+            body: SingleChildScrollView(
+              child: SecretEncoderPanel(),
+            ),
           ),
         ),
       ),
