@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<input-method xmlns:android="http://schemas.android.com/apk/res/android">
+    <subtype
+        android:label="English (US)"
+        android:icon="@mipmap/ic_launcher"
+        android:imeSubtypeLocale="en_US"
+        android:imeSubtypeMode="keyboard"
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=qwerty" />
+    <subtype
+        android:label="Sinhala (Phonetic)"
+        android:icon="@mipmap/ic_launcher"
+        android:imeSubtypeLocale="si_LK"
+        android:imeSubtypeMode="keyboard"
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=sinhala_phonetic" />
+    <subtype
+        android:label="Sinhala (Wijesekera)"
+        android:icon="@mipmap/ic_launcher"
+        android:imeSubtypeLocale="si_LK"
+        android:imeSubtypeMode="keyboard"
+        android:imeSubtypeExtraValue="KeyboardLayoutSet=sinhala_wijesekera" />
+</input-method>
