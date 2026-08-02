@@ -22,7 +22,7 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
     '🥸', '🤩', '🥳', '😏', '😒', '😞', '😔', '😟', '😕', '🙁',
     '😣', '😖', '😫', '😩', '🥺', '😢', '😭', '😮‍💨', '😤', '😠',
     '😡', '🤬', '🤯', '😳', '🥵', '🥶', '😱', '😨', '😰', '😥',
-    '🤗', 'Thinking', '🤫', '🫠', '🫡', '🫣', '🤖', '👾', '👻', '💀'
+    '🤗', '🤖', '👾', '👻', '💀'
   ];
 
   static const List<String> animalsAndNature = [
@@ -56,7 +56,7 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -72,7 +72,7 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
     return Container(
       height: 230,
       decoration: BoxDecoration(
-        color: theme.backgroundColor.withOpacity(0.95),
+        color: theme.backgroundColor.withValues(alpha: 0.95),
         border: Border(top: BorderSide(color: theme.borderColor)),
       ),
       child: Column(
@@ -87,7 +87,7 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
                 style: TextStyle(color: theme.keyTextColor, fontSize: 12),
                 decoration: InputDecoration(
                   hintText: 'Search Emojis & Kaomoji...',
-                  hintStyle: TextStyle(color: theme.keyTextColor.withOpacity(0.5)),
+                  hintStyle: TextStyle(color: theme.keyTextColor.withValues(alpha: 0.5)),
                   prefixIcon: Icon(Icons.search, size: 14, color: theme.keyTextColor),
                   filled: true,
                   fillColor: theme.keyColor,
@@ -104,13 +104,14 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
             controller: _tabController,
             indicatorColor: theme.accentColor,
             labelColor: theme.accentColor,
-            unselectedLabelColor: theme.keyTextColor.withOpacity(0.6),
+            unselectedLabelColor: theme.keyTextColor.withValues(alpha: 0.6),
             isScrollable: true,
             tabs: const [
               Tab(text: '😀 Smileys'),
               Tab(text: '🐶 Animals'),
               Tab(text: '🍕 Food'),
               Tab(text: 'ฅ^•ﻌ•^ฅ Kaomoji'),
+              Tab(text: '✨ Flags'),
             ],
           ),
           Expanded(
@@ -121,6 +122,7 @@ class _EmojiPanelState extends ConsumerState<EmojiPanel>
                 _buildGrid(animalsAndNature, theme),
                 _buildGrid(foodAndDrink, theme),
                 _buildKaomojiList(kaomoji, theme),
+                _buildGrid(symbolsAndFlags, theme),
               ],
             ),
           ),
