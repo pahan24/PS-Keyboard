@@ -16,9 +16,24 @@ class HomeSettingsScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'PS Keyboard',
-          style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.asset(
+                'assets/images/app_logo.png',
+                width: 32,
+                height: 32,
+                errorBuilder: (_, __, ___) => const Icon(Icons.keyboard),
+              ),
+            ),
+            const SizedBox(width: 10),
+            const Text(
+              'PS Keyboard',
+              style: TextStyle(fontWeight: FontWeight.bold, letterSpacing: 1.2),
+            ),
+          ],
         ),
         actions: [
           IconButton(
@@ -36,13 +51,13 @@ class HomeSettingsScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // Hero Banner
+            // Hero Banner with Logo
             Container(
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    activeTheme.accentColor.withOpacity(0.8),
+                    activeTheme.accentColor.withOpacity(0.85),
                     activeTheme.specialKeyColor,
                   ],
                   begin: Alignment.topLeft,
@@ -51,39 +66,68 @@ class HomeSettingsScreen extends ConsumerWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: activeTheme.accentColor.withOpacity(0.3),
-                    blurRadius: 16,
+                    color: activeTheme.accentColor.withOpacity(0.35),
+                    blurRadius: 18,
                     offset: const Offset(0, 4),
                   ),
                 ],
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child: Row(
                 children: [
-                  const Text(
-                    '⚡ PS Keyboard Active',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          '⚡ PS Keyboard Active',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        const Text(
+                          'Premium Sinhala & English IME with AES-256 Secret Encoder, Live RGB Shaders, and Smart Utilities.',
+                          style: TextStyle(color: Colors.white70, fontSize: 12.5),
+                        ),
+                        const SizedBox(height: 14),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            NativeInputService.showInputMethodPicker();
+                          },
+                          icon: const Icon(Icons.keyboard_option_key),
+                          label: const Text('ENABLE / SWITCH KEYBOARD'),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(height: 6),
-                  const Text(
-                    'Premium Sinhala & English IME with AES-256 Secret Encoder, Live RGB Shaders, and Smart Utilities.',
-                    style: TextStyle(color: Colors.white70, fontSize: 13),
-                  ),
-                  const SizedBox(height: 14),
-                  ElevatedButton.icon(
-                    onPressed: () {
-                      NativeInputService.showInputMethodPicker();
-                    },
-                    icon: const Icon(Icons.keyboard_option_key),
-                    label: const Text('ENABLE / SWITCH KEYBOARD'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
-                      foregroundColor: Colors.black,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                  const SizedBox(width: 12),
+                  // App Logo Graphic
+                  Container(
+                    width: 72,
+                    height: 72,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(18),
+                      border: Border.all(color: Colors.white30, width: 1.5),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.black38, blurRadius: 10)
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        'assets/images/app_logo.png',
+                        fit: BoxFit.cover,
+                        errorBuilder: (_, __, ___) => const Icon(Icons.keyboard, size: 40),
+                      ),
                     ),
                   ),
                 ],
@@ -118,7 +162,9 @@ class HomeSettingsScreen extends ConsumerWidget {
                 TextButton(
                   onPressed: () {
                     Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const ThemeCustomizerScreen(isEmbedded: false)),
+                      MaterialPageRoute(
+                        builder: (_) => const ThemeCustomizerScreen(isEmbedded: false),
+                      ),
                     );
                   },
                   child: const Text('CUSTOM EDITOR'),
